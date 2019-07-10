@@ -50,66 +50,6 @@ public class DataLoader implements CommandLineRunner {
         userRepository.save(user);
 
 
-        House house = new House();
-        house.setName("Test");
-        houseRepository.save(house);
-
-
-        //Foyer
-        Room room = new Room();
-        room.setName("Foyer");
-        room.setContent("a Dead Scorpion");
-        room.setMoney(100.00);
-        roomRepository.save(room);
-
-        //Front Room
-        room = new Room();
-        room.setName("Front Room");
-        room.setContent("a Piano");
-        room.setMoney(103.00);
-        roomRepository.save(room);
-
-        //Library
-        room = new Room();
-        room.setName("Library");
-        room.setContent("Spiders");
-        room.setMoney(103.00);
-        roomRepository.save(room);
-
-        //Kitchen
-        room = new Room();
-        room.setName("Kitchen");
-        room.setContent("Bats");
-        room.setMoney(103.00);
-        roomRepository.save(room);
-
-        //Dining Room
-        room = new Room();
-        room.setName("Dining Room");
-        room.setContent("Dust and an Empty Box");
-        room.setMoney(103.00);
-        roomRepository.save(room);
-
-        //Vault
-        room = new Room();
-        room.setName("Vault");
-        room.setContent("3 Walking Skeletons");
-        room.setMoney(103.00);
-        roomRepository.save(room);
-
-        //Parlor
-        room = new Room();
-        room.setName("Parlor");
-        room.setContent("Treasure Chest");
-        room.setMoney(103.00);
-        roomRepository.save(room);
-
-        //Secret Room
-        room = new Room();
-        room.setName("Secret Room");
-        room.setContent("Piles of Gold");
-        room.setMoney(103.00);
-        roomRepository.save(room);
 
     }
 }

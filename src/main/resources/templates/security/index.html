@@ -14,7 +14,12 @@
 
 </head>
 <body>
-<h1>HELLO WORLD</h1>
+    <h1>HELLO WORLD</h1>
+    <br />
+    <a href="/newgame">New Game</a>
 
+    <div th:each="house : ${houses}">
+        <a th:href="@{/housedetails/{id}(id=${house.id})}"><h3 style="color:#483d8b;" th:text="${house.name}"></h3></a>
+    </div>
 </body>
 </html>

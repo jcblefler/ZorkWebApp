@@ -1,5 +1,7 @@
 package com.jlefler.zork.house;
 
+import com.jlefler.zork.security.User;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -14,6 +16,9 @@ public class House {
 
     @OneToMany
     private Collection<Room> rooms;
+
+    @ManyToMany
+    private Collection<User> players;
 
     public House() {
     }
@@ -40,5 +45,13 @@ public class House {
 
     public void setRooms(Room room) {
         rooms.add(room);
+    }
+
+    public Collection<User> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(User player) {
+        players.add(player);
     }
 }

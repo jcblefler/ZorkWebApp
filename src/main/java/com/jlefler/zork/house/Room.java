@@ -16,6 +16,8 @@ public class Room {
 
     private String name;
 
+    private int roomNumber;
+
     private double money;
 
     private String content;
@@ -43,6 +45,14 @@ public class Room {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
     public double getMoney() {

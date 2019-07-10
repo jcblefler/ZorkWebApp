@@ -5,6 +5,7 @@ import com.jlefler.zork.house.Room;
 import com.jlefler.zork.repository.HouseRepository;
 import com.jlefler.zork.repository.RoomRepository;
 import com.jlefler.zork.security.User;
+import com.jlefler.zork.service.HouseService;
 import com.jlefler.zork.service.RoomService;
 import com.jlefler.zork.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,6 @@ import java.util.Arrays;
 
 @Controller
 public class HomeController {
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private RoomService roomService;
 
     @Autowired
     private RoomRepository roomRepository;
@@ -32,6 +28,14 @@ public class HomeController {
     @Autowired
     HouseRepository houseRepository;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private RoomService roomService;
+
+    @Autowired
+    private HouseService houseService;
 
     @GetMapping("/register")
     public String showRegistrationPage(Model model) {
@@ -68,17 +72,16 @@ public class HomeController {
 
         User user = userService.getCurrentUser();
 
-        House house = houseRepository.findByName("Test");
-        house.setRooms(roomRepository.findByName("Foyer"));
-        houseRepository.save(house);
+        Iterable<House> houses = houseRepository.findAll();
 
-        roomService.genRoomConnections();
+        model.addAttribute("houses", houseRepository.findAll());
 
         return "security/index";
     }
 
     @RequestMapping ("/login")
     public String login() {
+//        roomService.genRoomConnections();
 
         return "security/login";
     }
