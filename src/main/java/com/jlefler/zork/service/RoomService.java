@@ -4,6 +4,7 @@ import com.jlefler.zork.house.House;
 import com.jlefler.zork.house.Room;
 import com.jlefler.zork.repository.HouseRepository;
 import com.jlefler.zork.repository.RoomRepository;
+import com.jlefler.zork.security.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -103,6 +104,14 @@ public class RoomService {
         houseService.addRooms(house, rooms);
         rooms.clear();
 
+    }
+
+    public void userSetRoom(House house, User user){
+        for (Room room : house.getRooms()){
+            if (room.getName().equalsIgnoreCase("Foyer")){
+                user.setRoom(room);
+            }
+        }
     }
 
 //    public void genRoomConnections(House house) {

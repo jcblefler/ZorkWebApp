@@ -25,7 +25,7 @@ public class Room {
     @ManyToMany
     private Set<Room> connections;
 
-    @ManyToMany
+    @OneToMany
     private Collection<User> players;
 
     public Room() {

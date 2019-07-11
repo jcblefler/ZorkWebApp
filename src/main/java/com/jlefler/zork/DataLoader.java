@@ -25,12 +25,6 @@ public class DataLoader implements CommandLineRunner {
     private RoleRepository roleRepository;
 
     @Autowired
-    private RoomRepository roomRepository;
-
-    @Autowired
-    private HouseRepository houseRepository;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override

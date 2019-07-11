@@ -1,5 +1,6 @@
 package com.jlefler.zork.security;
 
+import com.jlefler.zork.house.House;
 import com.jlefler.zork.house.Room;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -39,10 +40,13 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles;
 
-    @ManyToMany
-    private Collection<Room> rooms;
+    @ManyToOne
+    private Room room;
 
     private int highscore;
+
+    @ManyToOne
+    private House house;
 
     public User() {
     }
@@ -137,12 +141,12 @@ public class User {
         this.roles = roles;
     }
 
-    public Collection<Room> getRooms() {
-        return rooms;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRooms(Room room) {
-        rooms.add(room);
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public int getHighscore() {
@@ -151,5 +155,13 @@ public class User {
 
     public void setHighscore(int highscore) {
         this.highscore = highscore;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
     }
 }

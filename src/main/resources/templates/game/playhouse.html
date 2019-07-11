@@ -11,6 +11,18 @@
 </head>
 <body>
 
+<h3 th:inline="text">You are in the [[${room.name}]] and picked up $[[${room.money}]]</h3>
+<h3 th:inline="text">You see [[${room.content}]]</h3>
+<h4>Where will you go?</h4>
+
+<form action="#" th:action="@{/postplayhouse}" method="post" >
+    <input type="hidden" name="roomNumber" th:value="${room.roomNumber}" />
+
+    <input type="text" name="input" />
+
+    <input type="submit" value="Submit" />
+</form>
+
 
 <!--Bootstrap JS-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

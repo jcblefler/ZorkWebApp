@@ -17,7 +17,7 @@ public class House {
     @OneToMany
     private Collection<Room> rooms;
 
-    @ManyToMany
+    @OneToMany
     private Collection<User> players;
 
     public House() {
